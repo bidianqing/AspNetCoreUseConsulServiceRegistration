@@ -1,7 +1,4 @@
-using AspNetCoreUseConsulServiceRegistration.Controllers;
 using Consul;
-using Microsoft.AspNetCore.Hosting.Server;
-using Microsoft.AspNetCore.Hosting.Server.Features;
 using System.Net;
 using System.Net.Sockets;
 
@@ -11,8 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 WebApplication app = builder.Build();
-
-
 
 var lifetime = app.Lifetime;
 var logger = app.Logger;
