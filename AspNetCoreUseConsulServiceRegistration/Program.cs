@@ -14,12 +14,12 @@ var logger = app.Logger;
 var consulClient = new ConsulClient();
 
 
-//var result = await consulClient.Agent.Checks();
-//var checks = result.Response;
-//checks.Values.ToList().FindAll(u => u.Status == HealthStatus.Critical).ForEach(async item =>
-//{
-//    await consulClient.Agent.ServiceDeregister(item.ServiceID);
-//});
+var result = await consulClient.Agent.Checks();
+var checks = result.Response;
+checks.Values.ToList().FindAll(u => u.Status == HealthStatus.Critical).ForEach(async item =>
+{
+    await consulClient.Agent.ServiceDeregister(item.ServiceID);
+});
 
 
 var hostName = Dns.GetHostName();
